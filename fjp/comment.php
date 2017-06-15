@@ -21,11 +21,11 @@ if(isset($_GET['book_id'])){
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>感想一覧</title>
+	<title>感想の一覧</title>
 	<link rel="stylesheet" href="">
 </head>
 <body>
-<h1>感想一覧</h1>
+<h1>感想の一覧</h1>
 <?php if(isset($book_name)){
 	?>
 	<p class="book_name"><?php echo $book_name; ?></p>
