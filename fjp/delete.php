@@ -7,8 +7,12 @@ if(isset($_GET['book_id'])){
 	$book_id = $_GET['book_id'];
 	
 	// die();
-	$sql = "DELETE from book where book_id='$book_id'";
-	if($conn->query($sql)){
+	// $sql = "DELETE from book, book_comment inner join book_comment on book.book_id = book_comment.book_id where book_id='$book_id'";
+	$sql1 = "DELETE FROM book_comment WHERE book_comment.book_id = '$book_id';";
+	$sql2 = "DELETE FROM book WHERE book.book_id = '$book_id';";
+	
+
+	if($conn->query($sql1) && $conn->query($sql2)){
 		header('Location: index.php');
 		exit;
 	}else{

@@ -10,6 +10,10 @@ define('DB_NAME', 'book');   //id1966072_test_fjp
 define('DB_USER', 'root');          //id1966072_admin
 define('DB_PASS', '');              //123456
 
+/////////////////////////////
+
+define('COMMENT_LIMITED', 2);
+
 //connect db
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 

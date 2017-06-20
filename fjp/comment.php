@@ -13,6 +13,8 @@ if(isset($_GET['book_id'])){
 		$book_name = $row['book_name'];
 	}
 }
+
+
  ?>
 
 
@@ -22,18 +24,28 @@ if(isset($_GET['book_id'])){
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>感想の一覧</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+    <script src="custom.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
+<div class="comment-title">
+	
+
 <h1>感想の一覧</h1>
 <?php if(isset($book_name)){
 	?>
-	<p class="book_name"><?php echo $book_name; ?></p>
+	<div class="book_name"><?php echo $book_name; ?></div>
 
 	<?php
 	} ?>
 
-<a href="add_comment.php?book_id=<?php echo $book_id; ?>" title="">追加</a>
+</div>
+<div class="underline">
+	
+</div>
+<a href="add_comment.php?book_id=<?php echo $book_id; ?>" title="" class="button">追加</a>
 <?php include './showall_comment.php'; ?>
 </body>
 </html>

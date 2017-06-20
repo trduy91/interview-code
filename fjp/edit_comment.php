@@ -25,7 +25,7 @@ if(isset($_GET['comment_id'])){
 			$redirect = 'Location: comment.php?book_id=' . $book_id ;
 			header($redirect);
 			exit;
-		}else{
+		}else{	
 			echo "Error: ". $conn->error;
 		}
 
@@ -37,21 +37,29 @@ if(isset($_GET['comment_id'])){
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>感想の編集</title>
-		<link rel="stylesheet" href="">
+		<link rel="stylesheet" href="style.css">
+		<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
 	</head>
 	<body>
 	<h1>感想の編集</h1>
+	<div class="underline">
+		
+	</div>
 	<form action="edit_comment.php?comment_id=<?php echo $comment_id; ?>" method="post" accept-charset="utf-8">
-			コメント 
-			<textarea name="comment"><?php echo $comment['comment']; ?></textarea>
+			 
 			
+			<div class="wrapper">
+			<div class="title">コメント</div>
+			<textarea name="comment"><?php echo $comment['comment']; ?></textarea>
+			</div>
 			<button type="submit" class="button submit">送信</button>
 	</form>
 	<?php 
 		$url = 'comment.php?book_id=' . $book_id;
 		
 			 ?>
-	<a href="<?php echo $url; ?>" title="戻る">戻る</a>
+	<a href="<?php echo $url; ?>" title="戻る" class="button">戻る</a>
 
 	</body>
 	</html>

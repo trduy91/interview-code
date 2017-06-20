@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 12:56 PM
+-- Generation Time: Jun 20, 2017 at 04:47 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.2
 
@@ -38,10 +38,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`book_id`, `book_name`, `book_publisher`, `book_page`) VALUES
-(2, 'book 2', 'publisher 1', 10),
-(4, 'book 4 updated', 'publisher 3', 20),
-(5, 'book 123', 'publisher 12455', 16),
-(7, 'book 7', 'publisher abcd', 0);
+(7, 'asdasd', 'asdasd', 1234);
 
 -- --------------------------------------------------------
 
@@ -60,8 +57,11 @@ CREATE TABLE `book_comment` (
 --
 
 INSERT INTO `book_comment` (`comment_id`, `comment`, `book_id`) VALUES
-(4, 'SASDADASDADS updated', 2),
-(5, 'comment 1', 5);
+(6, 'qweqweqwe', 7),
+(7, 'asdasdasd', 7),
+(8, 'asdasdasdsfdgdgfjhn', 7),
+(9, 'ftghjftghjtghjy', 7),
+(10, 'tjrtyjrtyhjrtyhjtyjrtyjt', 7);
 
 --
 -- Indexes for dumped tables
@@ -77,7 +77,8 @@ ALTER TABLE `book`
 -- Indexes for table `book_comment`
 --
 ALTER TABLE `book_comment`
-  ADD PRIMARY KEY (`comment_id`);
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `book_id` (`book_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -92,7 +93,18 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `book_comment`
 --
 ALTER TABLE `book_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `book_comment`
+--
+ALTER TABLE `book_comment`
+  ADD CONSTRAINT `book_comment_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`),
+  ADD CONSTRAINT `book_comment_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
